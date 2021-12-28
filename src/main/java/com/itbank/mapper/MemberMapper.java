@@ -3,6 +3,7 @@ package com.itbank.mapper;
 import com.itbank.vo.MemberVO;
 
 public interface MemberMapper {
-	public MemberVO login(MemberVO vo);
+	public MemberVO selectOne(MemberVO vo);
+	public int insertOne(MemberVO vo);
 	
 }

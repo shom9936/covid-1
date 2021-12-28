@@ -33,7 +33,9 @@ public class MemberController {
 	
 	@PostMapping("/join")
 	public String join(MemberVO vo) {
-		log.info("join");
+		int result = service.join(vo);
+		if(result > 0) log.info("join successed : " + vo.getId());
+		else log.info("join failed : " + vo.getId());
 		return "joinResult";
 	}
 }
