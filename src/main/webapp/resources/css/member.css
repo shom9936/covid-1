@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+*{
+	font-family: "맑은 고딕";
+}
+
+a{
+	text-decoration: none;
+	color : black;
+}
+
+.delete-title{
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.delete-title  a{
+	color : #3d85c6;
+}
+
+.delete-form{
+	position : absolute;
+	top : 350px;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	text-align: left;
+}
+
+.delete-guide{
+	position : absolute;
+	top : 300px;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	text-align: left;
+}
+
+.delete-result{
+	position : absolute;
+	top : 300px;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	text-align: center;
+}
+
+.update-form{
+	position : absolute;
+	top : 350px;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	text-align: left;
+}
+
+.update-Result{
+	position : absolute;
+	top : 300px;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	text-align: center;
+}
+
+.goHome > button{
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 150px;
+	height: 30px;
+}
+
+.input-box {
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	line-height: 200%;
+}
+
+.input-box > input{
+	background: transparent;
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	font-size: 14pt;
+	width: 300px;
+	height: 30px;
+	margin: 0;
+}
+
+.confirm-box{
+	height: 30px;
+	width: 60px;
+	position: relative;
+	top: -2px;
+	border : none;
+	border-radius: 5px;
+}
+
+.available{
+	height: 30px;
+	width: 70px;
+	position: relative;
+	top: -2px;
+	border : none;
+	border-radius: 5px;
+	background-color: #999999;
+}
+
+.input-label {
+	font-weight: normal;
+	font-size: 9pt;
+}
+
+td , th{
+	padding: 10px;
+}
+
+input::placeholder{
+	color:#ccc;
+	font-size: 10pt;
+	margin-left: 10px;
+}
+
+.delete-box > button{
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 310px;
+	height: 30px;
+}
+
+.modify-box > button{
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 150px;
+	height: 30px;
+}
+
+.modify{
+	background-color: #2986cc;
+}
+
+.back{
+	background-color: #e45252;
+}
+
+.checked-img img{
+	width : 100px;
+	height: 100px;
+}
+
+.update-img img{
+	width : 100px;
+	height: 100px;
+}
+
+.member-button > button{
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 150px;
+	height: 40px;
+}
+
+.index-button{
+	margin-right : 30px;
+	background-color: #ccc;
+}
+
+.con-button{
+	background-color: #2986cc;
+}
+
+.update-box > button{
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 100px;
+	height: 30px;
+}
+
+.page-button{
+	text-align: center;
+}
+
+.page-button > input{
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 14px;
+	width: 100px;
+	height: 30px;
+}

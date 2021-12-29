@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.header{
+	margin-top: 0;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding : 10px;
+	padding-top: 1px;
+	/* display: flex; */
+	text-align: center;
+	/* position: relative; */
+}
+
+.title{
+	font-size: 30px;
+}
+
+.log_button{
+	float: right;
+}
+
+.foreign, .vaccine .korea, .board{
+	width : 150px;
+	float : left;
+	display: flex;
+}
