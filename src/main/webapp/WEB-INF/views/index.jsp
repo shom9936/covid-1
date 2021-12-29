@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
-<button type="button" class="board" onclick="location.href='list'">게시판</button>
 <div class="foreign">
 	<label>해외 여행 정보</label>
 	<ul>

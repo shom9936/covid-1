@@ -5,9 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/Surf/css/join.css?ver=3">
-<link rel="icon" href="/Surf/img/surf_person.ico">
-<title>Kaja Surf</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=6">
+<title>COVID-19</title>
 <script type="text/javascript">
 	var ckID = false;
 	var ckPW = false;
@@ -34,18 +33,18 @@
 	}
 
     function checkJoin(f){
-    	if(!ckID){
+    	/* if(!ckID){
     		alert('아이디를 확인해주세요');
     		f.id.focus();
     		return;
 
-    	}
+    	} */
     	
-    	if(!ckPW){
+    	/* if(!ckPW){
     		alert('비밀번호를 확인해주세요');
     		f.pwd.focus();
     		return;
-    	}
+    	} */
 		if(f.id.value==''){
 			alert('아이디를 입력하세요!');
 			f.id.focus();
@@ -71,22 +70,22 @@
 			f.tel.focus();
 			return;
 		}
-		f.action = "/member/join";
+		f.action = "/controller/member/join";
 		f.submit();
 	}
 </script>
 
 </head>
 <body>
-	<c:if test="${available}">
+<%-- 	<c:if test="${available}">
 		<script>
 			ckID = true;
 		</script>
 	</c:if>
-
+ --%>
 	<div class = "join-form">
 		<header class="join-title">
-			<h1> <a href="index">COVID-19</a></h1>
+			<h1> <a href="/controller/index">COVID-19</a></h1>
 		</header>
 		
 		<form method="post">
@@ -95,14 +94,14 @@
 					<th class="input-label">아이디</th>
 					<td class="input-box">
 						<input type="text" name="id" value = "${id }" placeholder="&nbsp;&nbsp;아이디">
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${available}">
 								<button class= "available" onclick="checkID(this.form);" disabled="disabled">사용 가능</button>
 							</c:when>
 							<c:otherwise>
 								<button class= "confirm-box" onclick="checkID(this.form);">사용</button>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 					</td>
 				</tr>
 				<tr>
@@ -128,10 +127,11 @@
 					<th class="input-label">이메일</th>
 					<td class="input-box">
 						<input type="text" name="email" value="${email}" placeholder="&nbsp;&nbsp;이메일">
+						<button class= "confirm-box" onclick="checkPW(this.form);" type="button"><font style="font-size: 8px;">본인 인증</font></button>
 					</td>
 				</tr>
 				<tr>
-					<th class="input-label">거주지/th>
+					<th class="input-label">거주지</th>
 					<td class="input-box">
 						<input type="text" name="location" value="${location}">
 					</td>

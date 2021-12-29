@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/Surf/css/login.css?ver=2">
-<title></title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?ver=6">
+<title>COVID-19</title>
 <script type="text/javascript">
     function checkLogin(f){
 		if(f.id.value==''){
@@ -46,7 +46,7 @@
 			</span>
 			<br><br>
 			<div class="go-join">
-				<a href="/joinForm">회원 가입</a>
+				<a href="/controller/member/joinForm">회원 가입</a>
 			</div>
 		</form>
 	</div>

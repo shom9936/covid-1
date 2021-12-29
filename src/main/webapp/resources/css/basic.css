@@ -11,6 +11,11 @@
 	/* position: relative; */
 }
 
+body{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
 .title{
 	font-size: 30px;
 }
@@ -19,8 +24,8 @@
 	float: right;
 }
 
-.foreign, .vaccine .korea, .board{
-	width : 150px;
+.foreign, .vaccine,  .korea, .board{
+	width : 300px;
+	min-height: 600px;
 	float : left;
-	display: flex;
 }
