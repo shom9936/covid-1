@@ -1,5 +1,6 @@
 package com.itbank.service;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.itbank.mapper.MemberMapper;
@@ -16,9 +17,15 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public MemberVO login(MemberVO vo) {
-		MemberVO memberVO = mapper.selectOne(vo);
-		if(memberVO != null) return memberVO;
-		else return null;
+		MemberVO memberVO = mapper.selectOne(vo.getId());
+		if(memberVO == null) return null;
+		else {
+			if(BCrypt.checkpw(vo.getPwd(), memberVO.getPwd())) {
+				return memberVO;
+			} else {
+				return null;
+			}
+		}
 	}
 	
 	@Override

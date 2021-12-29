@@ -27,8 +27,10 @@
 <div class="board">
 	<label>게시판</label>
 	<ul>
-		<li> 나라별 입.출입국 정보 </li>
-		<li> 해외 확진자 추세 </li>
+		<li> <a href="/board/mainList?boardValues=1"></a>공지사항</li>
+		<li> <a href="/board/mainList?boardValues=2"></a> 2</li>
+		<li> <a href="/board/mainList?boardValues=3"></a> 3</li>
+		<li> <a href="/board/mainList?boardValues=4"></a> 4</li>
 	</ul>
 </div>
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

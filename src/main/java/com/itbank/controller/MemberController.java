@@ -1,5 +1,7 @@
 package com.itbank.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +31,20 @@ public class MemberController {
 		log.info("loginForm");
 	}
 	
+	@PostMapping("/login")
+	public String login(String id, String pwd, HttpSession session) {
+		log.info("login");
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPwd(pwd);
+		
+		return null;
+	}
+	
 	// login창에서 회원가입을 누를 시 joinForm으로 이동
 	@GetMapping("/joinForm")
 	public void joinForm() {
 		log.info("joinForm");
-		System.out.println("joinForm");
 	}
 	
 	@PostMapping("/join")

@@ -70,7 +70,7 @@
 			f.tel.focus();
 			return;
 		}
-		f.action = "/controller/member/join";
+		f.action = "/member/join";
 		f.submit();
 	}
 </script>

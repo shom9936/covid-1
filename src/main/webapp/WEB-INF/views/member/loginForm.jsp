@@ -20,7 +20,7 @@
 			return;
 		}
 		
-		f.action = "/login";
+		f.action = "/member/login";
 		f.submit();
 	}
 </script>
@@ -46,7 +46,7 @@
 			</span>
 			<br><br>
 			<div class="go-join">
-				<a href="/controller/member/joinForm">회원 가입</a>
+				<a href="/member/joinForm">회원 가입</a>
 			</div>
 		</form>
 	</div>

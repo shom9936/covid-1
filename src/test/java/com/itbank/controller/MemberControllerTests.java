@@ -41,7 +41,7 @@ public class MemberControllerTests {
 	public void testList() throws Exception{
         log.info(
                 mokMvc.perform(
-                        MockMvcRequestBuilders.post("/join")
+                        MockMvcRequestBuilders.post("/member/join")
                 	.param("id", "test01")
                 	.param("pwd", "test01123")
                 	.param("name", "test")
