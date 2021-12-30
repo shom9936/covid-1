@@ -1,8 +1,14 @@
 package com.itbank.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,14 +43,43 @@ public class MemberController {
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
 		vo.setPwd(pwd);
+		MemberVO memberVO = service.login(vo);
+		if(memberVO.equals(null)) {
+			String message = "아이디 혹은 비밀번호가 일치하지않습니다.";
+			log.info("login failed");
+			return "member/loginForm";
+		}
 		
-		return null;
+		log.info("login successed");
+		session.setAttribute("vo", memberVO);
+		session.setAttribute("isLogin", true);
+		
+		return "index";
 	}
 	
 	// login창에서 회원가입을 누를 시 joinForm으로 이동
 	@GetMapping("/joinForm")
 	public void joinForm() {
 		log.info("joinForm");
+	}
+	
+	// ajax를 활용한 아이디 중복체크 기능
+	@PostMapping("/checkID")
+	public void checkID(HttpRequest request, HttpServletResponse response, String id) {
+		((ServletResponse) request).setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+		int result = service.checkID(id);
+		boolean check = false;
+		if(result == 1) check = true;
+		try {
+			PrintWriter writer = response.getWriter();
+			writer.print(check);
+			
+		} catch (IOException e) {
+			log.info("writer Error");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@PostMapping("/join")
@@ -61,6 +96,6 @@ public class MemberController {
 			log.info("join failed : " + vo.getId());
 			model.addAttribute("joinResult", true);
 		}
-		return "member/joinResult";
+		return "/member/joinResult";
 	}
 }

@@ -32,4 +32,14 @@ public class MemberServiceImpl implements MemberService{
 	public int join(MemberVO vo) {
 		return mapper.insertOne(vo);
 	}
+	
+	@Override
+	public int checkID(String id) {
+		Integer result = mapper.selectID(id);
+		if(result.equals(null)) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
 }

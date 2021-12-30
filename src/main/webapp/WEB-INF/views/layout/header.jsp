@@ -16,11 +16,11 @@
 		</span>
 		<span class="log_button">
 			<c:choose>
-				<c:when test="${login == null }">
-					<button class="login_button" type="button" onclick="location.href='/member/loginForm'">login</button>
+				<c:when test="${isLogin}">
+					<button class="logout_button" type="button" onclick="location.href='logout'">logout</button>
 				</c:when>
 				<c:otherwise>
-					<button class="logout_button" type="button" onclick="location.href='logout'">logout</button>
+					<button class="login_button" type="button" onclick="location.href='/member/loginForm'">login</button>
 				</c:otherwise>
 			</c:choose>
 		</span>

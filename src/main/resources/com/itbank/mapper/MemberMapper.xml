@@ -10,4 +10,8 @@
   	<insert id="insertOne" parameterType="com.itbank.vo.MemberVO">
   		insert into member values(mem_seq.nextval, #{id}, #{pwd}, #{name}, #{email}, #{location}, #{tel})
   	</insert>
+  	
+  	<select id="selectID" parameterType="java.lang.String" resultType="int">
+  		select 1 from member where id = #{id}
+  	</select>
   </mapper>

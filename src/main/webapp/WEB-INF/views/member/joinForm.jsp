@@ -7,73 +7,39 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=6">
 <title>COVID-19</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/join.js"></script>
 <script type="text/javascript">
 	var ckID = false;
 	var ckPW = false;
 
-	function checkID(f){
-		
-		if(f.id.value==''){
-			alert('아이디를 입력하세요!')
-			f.id.focus();
-			return;
-		}
-		
-		f.action = "/Surf/member/checkID.me";
-		f.submit();
-		
+	function fn_process(id){
+		$.ajax({
+			type : "post",
+			dataType : "text" ,
+			async : false, // false인 경우 동기식으로 처리한다.
+			url : "http://localhost:8080/member/checkID" ,
+			data : {param: id} ,
+			success:function (data, textStatus) {
+				ckID = data;
+				if(ckID){
+					alert('사용 가능한 아이디입니다.');
+				} else {
+					alert('이미 사용중인 아이디입니다.');
+				}
+			},
+			error:function (data, textStatus){
+				alert('에러가 발생했습니다.');
+			},
+			complete:function (data, textStatus){
+				alert('작업을 완료했습니다.');
+			}
+		});
 	}
-	function checkPW(f){
-		if(f.pwd.value == f.rePW.value){
-			alert('비밀번호가 일치합니다.');
-			ckPW = true;
-		} else {
-			alert('비밀번호가 일치하지 않습니다.');
-		}
-	}
-
-    function checkJoin(f){
-    	/* if(!ckID){
-    		alert('아이디를 확인해주세요');
-    		f.id.focus();
-    		return;
-
-    	} */
-    	
-    	/* if(!ckPW){
-    		alert('비밀번호를 확인해주세요');
-    		f.pwd.focus();
-    		return;
-    	} */
-		if(f.id.value==''){
-			alert('아이디를 입력하세요!');
-			f.id.focus();
-			return;
-		}
-		if(f.pwd.value==''){
-			alert('비밀번호를 입력하세요!');
-			f.pwd.focus();
-			return;
-		}
-		if(f.name.value==''){
-			alert('이름을 입력하세요!');
-			f.name.focus();
-			return;
-		}
-		if(f.email.value==''){
-			alert('이메일을 입력하세요!');
-			f.email.focus();
-			return;
-		}
-		if(f.tel.value==''){
-			alert('전화번호를 입력하세요!');
-			f.tel.focus();
-			return;
-		}
-		f.action = "/member/join";
-		f.submit();
-	}
+	
 </script>
+
+
 
 </head>
 <body>
@@ -94,14 +60,14 @@
 					<th class="input-label">아이디</th>
 					<td class="input-box">
 						<input type="text" name="id" value = "${id }" placeholder="&nbsp;&nbsp;아이디">
-						<%-- <c:choose>
-							<c:when test="${available}">
+						<c:choose>
+							<c:when test="${ckID}">
 								<button class= "available" onclick="checkID(this.form);" disabled="disabled">사용 가능</button>
 							</c:when>
 							<c:otherwise>
 								<button class= "confirm-box" onclick="checkID(this.form);">사용</button>
 							</c:otherwise>
-						</c:choose> --%>
+						</c:choose>
 					</td>
 				</tr>
 				<tr>

@@ -31,7 +31,7 @@
 			<h1> <a href="/index">covid-19</a></h1>
 		</header>
 		
-		<form>
+		<form method="post">
 			<div class="input-box">
 				<input id = "id" type="text" name="id" value="${id }" placeholder="&nbsp;&nbsp;아이디">
 	
