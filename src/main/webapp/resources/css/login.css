@@ -7,6 +7,7 @@
 
 *{
 	font-family: "맑은 고딕";
+	text-decoration: none;
 }
 
 .login-title{
@@ -14,13 +15,13 @@
 }
 
 .login-title a{
-	color: #3d85c6;
+	color: #073763;
 	text-decoration: none;
 }
 
 .login-form{
 	position : absolute;
-	top : 40%;
+	top : 45%;
 	left : 50%;
 	transform : translate(-50%, -50%);
 	text-align: center;
@@ -39,7 +40,7 @@
 	box-shadow : 1px 1px 1px 1px gray;
 	pading : 20px 0px 5px 0px;
 	font-size: 14pt;
-	width: 100%;
+	width: 200px;
 	height: 30px;
 }
 
@@ -65,21 +66,29 @@ input::placeholder{
 }
 
 .login-button > input{
-	background-color: #2986cc;
+	background-color: #073763;
 	border : none;
 	border-radius: 5px;
 	box-shadow : none;
 	color : white;
-	font-size: 8px;
+	font-size: 12px;
 	font-family : "맑은 고딕";
 	font-weight : bold;
 	padding: 6px 15px;
-	width : 100%;
+	width : 250px;
 	height: 35px;
 }
 
 .go-join{
-	font-size: 10pt;
+	float : left; 
+}
+
+.go-join > img{
+	vertical-align: bottom;
+}
+
+.find-pwd{
+	float : right;
 }
 
 	

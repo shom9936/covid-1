@@ -5,35 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/Surf/css/join.css?ver=3">
-<link rel="stylesheet" href="/Surf/css/member.css?ver=4">
-<title>Kaja Surf</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=4">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member.css?ver=6">
+<title>My page</title>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/update.js?ver=2"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-
-	function checkupdate(f){
-		if(f.ckPW.value != f.pwd.value){
-			alert('비밀번호가 일치하지 않습니다');
-			f.pwd.focus();
-			return;
-		} else if(f.name.value==''){
-			alert('이름을 입력하세요!');
-			f.name.focus();
-		} else if(f.email.value==''){
-			alert('이메일을 입력하세요!');
-			f.email.focus();
-			return;
-		} else if(f.tel.value==''){
-			alert('전화번호를 입력하세요!');
-			f.tel.focus();
-			return;
-		}
-		
-		
-		f.action = "/member/join";
-		f.submit();
-	}
+	$(function() {
+		$('#location-selected').val('${vo.location}').prop("selected",true);			
+	});
 </script>
-
 </head>
 <body>
 
@@ -46,43 +27,61 @@
 			<table align="center">
 				<tr>
 					<th class="input-label">아이디</th>
-					<td class="input-box">
-						<input type="text" name="id" value = "${vo.id }" disabled="disabled" placeholder="&nbsp;&nbsp;아이디">
+					<td class="input-box-disable">
+						<input type="text" name="id" value = "${vo.id }" disabled="disabled" >
 					</td>
 				</tr>
 					<tr>
 					<th class="input-label">이름</th>
-					<td class="input-box">
-						<input type="text" name="name" value="${vo.name }" placeholder="&nbsp;&nbsp;이름">
+					<td class="input-box-disable">
+						<input type="text" name="name" value="${vo.name }" disabled="disabled" >
 					</td>
 				</tr>
 				
 				<tr>
 					<th class="input-label">전화번호</th>
 					<td class="input-box">
-						<input type="text" name="tel" value="${vo.tel}" placeholder="&nbsp;&nbsp;전화번호">
+						<input type="text" name="tel" value="${vo.tel}" >
 					</td>
 				</tr>
 				<tr>
 					<th class="input-label">이메일</th>
-					<td class="input-box">
-						<input type="text" name="email" value="${vo.email}" placeholder="&nbsp;&nbsp;이메일">
+					<td class="input-box-disable">
+						<input type="text" name="email" value="${vo.email}" disabled="disabled" >
 					</td>
 				</tr>
 
 				<tr>
-					<th class="input-label">비밀번호</th>
+					<th class="input-label">거주지</th>
 					<td class="input-box">
-						<input type="hidden" name="ckPW" value="${vo.pwd }">
-						<input type="password" name="pwd" placeholder="&nbsp;&nbsp;비밀번호">	
+						<select name="location" id="location-selected">
+							<option value="서울특별시" >서울특별시</option>
+							<option value="경기도" >경기도</option>
+							<option value="인천광역시" >인천광역시</option>
+							<option value="부산광역시" >부산광역시</option>
+							<option value="대구광역시" >대구광역시</option>
+							<option value="경상남도" >경상남도</option>
+							<option value="경상북도" >경상북도</option>
+							<option value="강원도" >강원도</option>
+							<option value="대전광역시" >대전광역시</option>
+							<option value="충청남도" >충청남도</option>
+							<option value="충청북도" >충청북도</option>
+							<option value="전라남도" >전라남도</option>
+							<option value="전라북도" >전라북도</option>
+							<option value="광주광역시" >광주광역시</option>
+							<option value="울산광역시" >울산광역시</option>
+							<option value="제주도" >제주도</option>
+							<option value="세종시" >세종시</option>
+						</select>
 					</td>
 				</tr>
 
 				<tr>
-					<th></th>
-					<td class="update-box">
-						<button type="button" class = "index-button" onclick="location.href='/Surf/member/index.me'">취소</button>
-						<button type="button" onclick="checkupdate(this.form);">수정 </button>
+					<td class="update-box" colspan = "2">
+						<br>
+						<button type="button" class = "index-button" onclick="window.location.href='/index'">취소</button>
+						<button type="button" class = "update-button" onclick="checkupdate(this.form);">수정 </button> <br>
+						<button type="button" class = "delete-button" onclick="window.location.href='/member/deleteGuide'">회원 탈퇴</button>
 					</td>
 				</tr>
 			</table>

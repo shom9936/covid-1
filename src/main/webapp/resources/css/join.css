@@ -37,11 +37,14 @@ a{
 .input-box {
 	position: relative;
 	margin-top: 15px;
-	margin-bottom: 20px;
 	line-height: 200%;
 }
 
-.input-box > input{
+.input-box-includeText {
+	position: relative;
+}
+
+.input-box > input, .input-box-includeText > input{
 	background: transparent;
 	border : solid 1px #ccc;
 	border-radius : 5px;
@@ -51,7 +54,14 @@ a{
 	margin: 0;
 }
 
-.confirm-box{
+.input-box > select{
+	width : 300px;
+	padding : .8em .5em;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+}
+
+.confirm-box, .confirmID-box{
 	height: 30px;
 	width: 60px;
 	position: relative;
@@ -74,6 +84,12 @@ a{
 .input-label {
 	font-weight: normal;
 	font-size: 9pt;
+}
+
+.input-label-includeText {
+	font-weight: normal;
+	font-size: 9pt;
+	padding-bottom: 30px;
 }
 
 td , th{

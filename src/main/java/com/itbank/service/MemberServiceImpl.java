@@ -35,11 +35,27 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public int checkID(String id) {
-		Integer result = mapper.selectID(id);
-		if(result.equals(null)) {
+		String result = mapper.selectID(id);
+		if(result == null) {
 			return 0;
 		} else {
 			return 1;
 		}
+	}
+	
+	@Override
+	public int memberUpdate(MemberVO vo) {
+		int result = mapper.memberUpdate(vo);
+		return result;
+	}
+	
+	@Override
+	public MemberVO getInfo(String id) {
+		return mapper.selectOne(id);
+	}
+	
+	@Override
+	public int memberDelete(String id) {
+		return mapper.memberDelete(id);
 	}
 }

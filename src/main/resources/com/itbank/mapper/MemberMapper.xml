@@ -8,10 +8,19 @@
   	</select>
   	
   	<insert id="insertOne" parameterType="com.itbank.vo.MemberVO">
-  		insert into member values(mem_seq.nextval, #{id}, #{pwd}, #{name}, #{email}, #{location}, #{tel})
+  		insert into member values(mem_seq.nextval, #{id}, #{pwd}, #{name}, #{email}, #{tel}, #{location})
   	</insert>
   	
-  	<select id="selectID" parameterType="java.lang.String" resultType="int">
-  		select 1 from member where id = #{id}
+  	<select id="selectID" parameterType="java.lang.String" resultType="java.lang.String">
+  		select id from member where id = #{id}
   	</select>
+  	
+  	<update id="memberUpdate" parameterType="com.itbank.vo.MemberVO" >
+  		update member set tel = #{tel}, location = #{location} where id = #{id}
+  	</update>
+  	
+  	<delete id="memberDelete" parameterType="java.lang.String">
+  		delete from member where id = #{id}
+  	</delete>
+  	
   </mapper>

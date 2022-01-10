@@ -5,8 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?ver=6">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?ver=8">
 <title>COVID-19</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
     function checkLogin(f){
 		if(f.id.value==''){
@@ -28,7 +29,7 @@
 <body>
 	<div class = "login-form">
 		<header class="login-title">
-			<h1> <a href="/index">covid-19</a></h1>
+			<h1> <a href="/index">COVID-19 안내 페이지</a></h1>
 		</header>
 		
 		<form method="post">
@@ -44,9 +45,13 @@
 			<span class="login-button">
 				<input type="button" value = "로그인" onclick="checkLogin(this.form);">
 			</span>
-			<br><br>
+			<br><br><br>
 			<div class="go-join">
-				<a href="/member/joinForm">회원 가입</a>
+				<img src="${pageContext.request.contextPath }/resources/img/join.png" width="25px" height="25px">
+				<a href="/member/joinForm"><font color="#77b8f4" style="font-weight: bold;">회원 가입</font></a>
+			</div>
+			<div class="find-pwd">
+				<a href="/member/findPassword"><font color="black" size="3pt;" style="font-weight: bold;">비밀번호 찾기</font></a>
 			</div>
 		</form>
 	</div>

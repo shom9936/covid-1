@@ -17,10 +17,12 @@
 		<span class="log_button">
 			<c:choose>
 				<c:when test="${isLogin}">
-					<button class="logout_button" type="button" onclick="location.href='logout'">logout</button>
+					<button class="logout_button" type="button" onclick="location.href='/member/logout'">logout</button> &nbsp;
+					<button class="login_button" type="button" onclick="location.href='/member/passwordCheck'">update</button>
 				</c:when>
 				<c:otherwise>
-					<button class="login_button" type="button" onclick="location.href='/member/loginForm'">login</button>
+					<button class="login_button" type="button" onclick="location.href='/member/loginForm'">login</button> &nbsp;
+					<button class="join_button" type="button" onclick="location.href='/member/joinForm'">join</button>
 				</c:otherwise>
 			</c:choose>
 		</span>
