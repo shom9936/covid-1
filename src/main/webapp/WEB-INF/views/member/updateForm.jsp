@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=4">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member.css?ver=6">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member.css?ver=7">
 <title>My page</title>
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/update.js?ver=2"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>

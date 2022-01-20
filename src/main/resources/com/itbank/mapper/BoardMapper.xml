@@ -2,5 +2,67 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.itbank.mapper.BoardMapper">
-  </mapper>
+<mapper namespace="com.itbank.mapper.BoardMapper">
+
+	<select id="getAllList" resultType="com.itbank.vo.BoardVO">
+		select board.no, board.title, board.writer, board.regdate, board.cnt from
+		board order by no desc
+	</select>
+
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	
+	<select id="mainBoard" resultType="com.itbank.vo.BoardVO">
+		SELECT * FROM(
+        	SELECT ROWNUM RN, A.* 
+            	FROM(
+          			SELECT * FROM BOARD ORDER BY NO DESC
+                ) A
+            )
+        WHERE RN BETWEEN #{startList} AND #{endList}
+	</select>
+	
+	<select id="detailBoard" resultType="com.itbank.vo.BoardVO" parameterType="int">
+        select * from board where boardvalues = #{boardvalues} order by no desc
+	</select>
+
+	<insert id="insert">
+		insert into board(no,title,content,writer,regdate)
+		values(board_seq.nextval, #{title},#{content},#{writer},sysdate)
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="no" order="BEFORE" resultType="long">
+			select board_seq.nextval from dual
+		</selectKey>
+		insert into board(no,title,content,writer)
+		values(#{no},#{title},#{content},#{writer})
+	</insert>
+
+	<select id="read" resultType="com.itbank.vo.BoardVO">
+		select * from board where no = #{no}
+	</select>
+	
+	<select id="getBoardListCnt" resultType="int">
+		select count(*) as listCnt from board
+	</select>
+	
+	<delete id="delete">
+		delete from board where no = #{no}
+	</delete>
+
+	<update id="update">
+		update board set
+		title = #{title},
+		content = #{content},
+		writer = #{writer},
+		boardvalues = #{boardvalues},
+		regDate = sysdate
+		where no = #{no}
+	</update>
+		
+	<update id="updateViewCnt">
+		update board set cnt = cnt + 1 where no = #{no}
+	</update>
+</mapper>

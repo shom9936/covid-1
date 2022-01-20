@@ -1,32 +1,147 @@
 @charset "UTF-8";
 
+html{
+	margin-top: 0px;
+}
+
 .header{
-	margin-top: 0;
-	margin-left: 10%;
-	margin-right: 10%;
-	padding : 10px;
-	padding-top: 1px;
+	margin-top: 0px;
+	/* padding : 10px; */
+	padding-top: 0px;
 	/* display: flex; */
 	text-align: center;
+	min-height: 100px;
 	/* position: relative; */
+	background-color: white;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.header-content{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 body{
 	margin-left: 10%;
 	margin-right: 10%;
+	list-style: none;
+	background-color: #073763;
+	margin-top: 0px;
+}
+nav {
+	margin-left: 25px;
+	padding-top: 10px;
 }
 
-.title{
+.index-page{
+	background-color: white;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.foreign > ul, .vaccine > ul, .korea > ul, .board > ul {
+	list-style: none;
+}
+
+.footer{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: white;
+	text-align: right;
+	font-size: 9pt;
+}
+
+.header-title{
 	font-size: 30px;
+	color : #073763;
+	font-weight: bold;
 }
 
 .log_button{
 	float: right;
 }
 
-.foreign, .vaccine,  .korea, .board{
-	width : 300px;
-	min-height: 600px;
-	float : left;
+.log_button > button {
+	background: transparent;
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	padding : 2px 5px 2px 5px;
+	font-weight: bold;
 }
 
+.foreign, .vaccine,  .korea, .board{
+	width : 300px;
+	min-height: 200px;
+	float : left;
+	
+}
+
+.board{
+    width : 200px;
+    min-height: 200px;
+    float : left;
+    margin-left: 50px;
+}
+
+.foreignLabel{
+    background-color: #073763;
+    border-radius: 9px;
+    padding:10px 40px 10px 40px;
+    color: white;
+    text-align: center;
+}
+
+.koreaLabel{
+    background-color: #073763;;
+    border-radius: 9px;
+    padding:10px 30px 10px 30px;
+    color: white;
+    text-align: center;
+}
+
+.vaccineLabel,.boardLabel{
+    background-color: #073763;
+    border-radius: 9px;
+    padding:10px 70px 10px 70px;
+    color: white;
+    text-align: center;
+}
+
+.home_image{
+    text-align: center;
+}
+
+.covid_gif{
+    width: 700px;
+    height: 300px;
+
+
+    margin-top: 50px;
+    margin-left: 25px;
+
+    border-radius: 5px;
+  }
+  
+.news_title{
+    font-size:20px;
+     flex: 0.1;
+     color: steelblue;
+     border-bottom: 2px solid silver;
+    margin-left: 20px;
+  }
+  
+.news_contents{
+    /*  flex:1; */
+     width: 1100px;
+     height: 300px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 1px;
+     background-color:ivory;
+     border-radius: 9px;
+  }
+
+  .home_contents{
+
+  }

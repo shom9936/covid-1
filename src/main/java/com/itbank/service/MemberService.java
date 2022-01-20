@@ -9,4 +9,6 @@ public interface MemberService {
 	public int memberUpdate(MemberVO vo);
 	public MemberVO getInfo(String id);
 	public int memberDelete(String id);
+	public MemberVO memberFindPassword(String id);
+	public int memberChangePassword(MemberVO vo);
 }

@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/basic.css?ver=6">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/basic.css?ver=7">
 </head>
 <body>
 <header class="header">
-	<div>
-		<span class="title">
-			covid-19 안내 페이지
+	
+	<div class="header-content">
+		<span class="header-title">
+			COVID-19 안내 페이지
 		</span>
 		<span class="log_button">
 			<c:choose>
@@ -27,5 +28,6 @@
 			</c:choose>
 		</span>
 	</div>
+	
 	<hr>
 </header>

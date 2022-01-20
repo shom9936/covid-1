@@ -23,4 +23,8 @@
   		delete from member where id = #{id}
   	</delete>
   	
+  	<update id="memberChangePassword" parameterType="com.itbank.vo.MemberVO">
+  		update member set pwd = #{pwd} where id = #{id}
+  	</update>
+  	
   </mapper>

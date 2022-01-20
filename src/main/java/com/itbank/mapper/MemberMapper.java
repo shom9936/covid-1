@@ -8,4 +8,5 @@ public interface MemberMapper {
 	public String selectID(String id);
 	public int memberUpdate(MemberVO vo);
 	public int memberDelete(String id);
+	public int memberChangePassword(MemberVO vo);
 }

@@ -3,22 +3,26 @@ package com.itbank.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.Random;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.ibatis.javassist.NotFoundException;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.itbank.service.MailService;
 import com.itbank.service.MemberService;
 import com.itbank.vo.MemberVO;
 
@@ -29,9 +33,11 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/member/*")
 @Log4j
 @RequiredArgsConstructor
+@EnableAsync
 public class MemberController {
 	
 	private final MemberService memberService;
+	private final MailService mailService;
 	
 	// 로그인 버튼을 누를시 loginForm으로 이동 
 	// email 전송을 위해 랜덤 문자열 값을 갖고 이동
@@ -74,7 +80,6 @@ public class MemberController {
 		
 		String randomString = RandomStringUtils.randomAlphanumeric(5); // 길이가 5인 랜덤 문자열 생성
 		model.addAttribute("randomString", randomString);
-		
 		log.info("random : " + randomString);
 	}
 	
@@ -132,6 +137,16 @@ public class MemberController {
 		}
 		return "/member/result";	// result.jsp : 성공 여부에 따라 msg(message)를 띄우고 url로 이동
 		 							// 실패 시 전 페이지로 이동
+	}
+	
+	@PostMapping("/sendMail") // 본인 인증용 메일 전송
+	public void sendSimpleMail(HttpServletRequest request, HttpServletResponse response, String to, String randomString) throws Exception{
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		mailService.sendMail(to, "본인확인 메일", randomString);
+		out.print("메일을 보냈습니다!");
+		
 	}
 	
 	@GetMapping("/passwordCheck") // 정보 수정 페이지 전 본인 확인을 위한 비밀번호 체크 페이지
@@ -221,5 +236,63 @@ public class MemberController {
 		log.info("findPassword");
 		return "/member/findPasswordInputID";
 	}
+	
+	// 비밀번호 찾기 : 본인인증
+	@GetMapping("/findPasswordIdentify")
+	public String findPasswordIdentify(Model model, String id) {
+		log.info("findPasswordIdentify");
+		MemberVO vo = memberService.memberFindPassword(id);
+		if(vo == null) {
+			model.addAttribute("msg", "해당 아이디는 존재하지않습니다.");
+			model.addAttribute("check", false);
+			return "/member/result";
+		}
+		model.addAttribute("vo", vo);
+		
+		String randomString = RandomStringUtils.randomAlphanumeric(5); // 길이가 5인 랜덤 문자열 생성
+		model.addAttribute("randomString", randomString);
+		log.info("random : " + randomString);
+		
+		return "/member/findPasswordIdentify";
+	}
+	
+	// 비밀번호 찾기 : 비밀번호 변경창으로 이동
+	@PostMapping("/findPasswordChange")
+	public void findPasswordChange(String id, Model model) {
+		log.info("findPasswordChange");
+		model.addAttribute("id", id);
+	}
+	
+	// 비밀번호 변경
+	@PostMapping("changePassword")
+	public String changePassword(String id, String pwd, Model model) {
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPwd(BCrypt.hashpw(pwd, BCrypt.gensalt())); // 비밀번호 암호화
+		
+		int result = memberService.memberChangePassword(vo);
+		if(result > 0) {
+			log.info("member password change successed");
+			model.addAttribute("msg", "비밀번호 변경이 완료되었습니다."); // 알림 메시지
+			model.addAttribute("check", true); // 성공, 실패 여부
+			model.addAttribute("url", "/member/loginForm"); // 알림 메시지를 띄우고 이동할 위치
+		} else {
+			log.info("member password change failed");
+			model.addAttribute("msg", "비밀번호 변경에 실패했습니다.");
+			model.addAttribute("check", false);
+		}
+		
+		return "/member/result";
+	}
+
+	@ExceptionHandler(RuntimeException.class)
+	public String exceptionHandler(Model model, Exception e){
+
+		log.info("exception : " + e.getMessage());
+		model.addAttribute("exception", e);
+		return "error/exception";
+	
+	}
+
 	
 }

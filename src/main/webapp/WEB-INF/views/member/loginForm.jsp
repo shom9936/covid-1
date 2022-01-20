@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?ver=8">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?ver=9">
 <title>COVID-19</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">

@@ -58,4 +58,18 @@ public class MemberServiceImpl implements MemberService{
 	public int memberDelete(String id) {
 		return mapper.memberDelete(id);
 	}
+	
+	@Override
+	public MemberVO memberFindPassword(String id) {
+		MemberVO memberVO = mapper.selectOne(id);
+		if(memberVO == null) return null;
+		else {
+			return memberVO;
+		}
+	}
+	
+	@Override
+	public int memberChangePassword(MemberVO vo) {
+		return mapper.memberChangePassword(vo);
+	}
 }

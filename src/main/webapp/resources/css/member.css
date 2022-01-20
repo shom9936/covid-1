@@ -49,8 +49,9 @@ a{
 	transform : translate(-50%, -50%);
 	text-align: left;
 	border: solid 1px #ccc;
-	border-radius: 5px;
-	padding: 15px;
+	border-radius: 15px;
+	padding: 30px;
+	background-color: white;
 }
 
 .update-Result{

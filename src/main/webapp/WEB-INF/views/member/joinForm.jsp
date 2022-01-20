@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=11">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/join.css?ver=12">
 <title>COVID-19</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/join.js?ver=2"></script>
@@ -58,7 +58,7 @@
 			type : "post",
 			dataType : "text" ,
 			async : false, // false인 경우 동기식으로 처리한다.
-			url : "http://localhost:8080/sendMail" ,
+			url : "http://localhost:8080/member/sendMail" ,
 			data : {to: f.email.value, randomString : f.randomString.value} ,
 			success:function (data, textStatus) {
 				child = window.open('http://localhost:8080/emailCheck.jsp', '_blank', 'height:300, width:300');

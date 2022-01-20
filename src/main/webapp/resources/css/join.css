@@ -9,13 +9,17 @@ a{
 	color : black;
 }
 
+body {
+	background-color: #073763;
+}
+
 .join-title{
 	margin-bottom: 50px;
 	text-align: center;
 }
 
 .join-title  a{
-	color : #3d85c6;
+	color : #073763;
 }
 
 .join-form{
@@ -24,6 +28,10 @@ a{
 	left : 50%;
 	transform : translate(-50%, -50%);
 	text-align: left;
+	border : 1px solid black;
+	border-radius: 15px;
+	padding : 30px;
+	background-color: white;
 }
 
 .join-result{
