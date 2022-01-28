@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.vaccine_title{
+     /* flex: 0.1; */
+    font-size: 40px;
+	font-weight: 700;
+     flex: 0.1;
+     color: #000000;
+     border-bottom: 2px solid lightgrey; 
+    margin-left: 20px;
+}
+
+.vaccine_list{
+	width : 350px;
+}
+
+.vaccine_contents{
+   background-color: #ffffff;
+	width: 1000px;
+    height: 1000px;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    margin: 100px auto;
+}
+
+.pfizer_info{
+	width: 350px;
+	height: 400px;
+	top:50;
+	left:50;
+	background-color:#f1f1f1;
+	margin-left: 100px;
+	margin-bottom: 100px;
+}
+
+.moderna_info{
+	width:350px;
+	height:400px;
+	background-color:#f1f1f1;
+	float: right;
+	margin-left: 100px;
+	margin-bottom: 100px;
+}
+
+.janssen_info{
+	width: 350px;
+	height: 400px;
+	top: 100;
+	left: 50;
+	background-color:#f1f1f1;
+	margin-left: 100px;
+}
+
+.astra_info{
+	width: 350px;
+	height: 400px;
+	top: 100;
+	left: 150;
+	background-color:#f1f1f1;
+	margin-left: 100px;
+}
+
+.pfizer_title, .moderna_title, .janssen_title, .astra_title{
+	color:#073763;
+	text-align: left;
+	font-size:20px;
+	font-weight: bold;
+	border-bottom: 2px solid lightgrey; 
+}
+
+th, td{
+	padding: 10px;
+}
+
+tr {
+	padding : 10px;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itbank.mapper.ForeignMapper">
+
+	<select id="getInfo" resultType="com.itbank.vo.ForeignVO">
+		select * from NationInfo where
+		NationNum = #{NationNum}
+	</select>
+
+	<select id="getAllList" resultType="com.itbank.vo.ForeignVO">
+		select * from NationInfo
+	</select>
+
+	<select id="NationNum" resultType="com.itbank.vo.ForeignVO">
+		select NationNum from NationInfo where NationNum = #{NationNum}
+	</select>
+</mapper>

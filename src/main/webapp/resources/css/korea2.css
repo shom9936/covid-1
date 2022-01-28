@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.korea_title{
+     /* flex: 0.1; */
+    font-size: 40px;
+	font-weight: 700;
+     flex: 0.1;
+     color: #000000;
+     border-bottom: 2px solid lightgrey; 
+    margin-left: 20px;
+}
+
+.korea_list{
+	width : 350px;
+}
+	
+.korea_contents{
+   background-color:#ffffff;
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+}
+
+
+.info{
+	width: 800px;
+	height: 1500px;
+	margin-left: 10px;
+	background-color: #f9f9f9;
+	font-size: 15px;
+}
+
+.info_title{
+	font-size:25px;
+	background-color:#b7b9ca;
+	text-align: center;
+}
+
+.footer {
+	min-height: 100px;
+}

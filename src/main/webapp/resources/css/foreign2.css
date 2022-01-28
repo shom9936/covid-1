@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.foreign_title{
+    flex: 0.1;
+    font-size: 40px;
+	font-weight: 700;
+     flex: 0.1;
+     color: #000000;
+     border-bottom: 2px solid lightgrey; 
+    margin-left: 20px;
+}
+
+.foreign_list{
+	width : 350px;
+}
+
+.info_title{
+	color:#073763;
+	text-align: center;
+	font-size:30px;
+	font-weight: bold;
+}
+.foreign_contents{
+	height: 600px;
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	border : 1px solid black;
+	text-align: center;
+	width : 800px;
+	margin: auto;
+}
+.foreign_info{
+	text-align: center;
+}
+
+.foreign_case_table-td:nth-child(odd){
+	background-color: #d1d1d1;
+}
+
+th, td {
+	padding : 10px;
+}
+
+.area_name{
+	color : #073763;
+	font-weight: bolder;
+}
+
+.foreign_case_table-th{
+	background: #999999;
+}

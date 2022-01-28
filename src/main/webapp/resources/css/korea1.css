@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.korea_title{
+     /* flex: 0.1; */
+    font-size: 40px;
+	font-weight: 700;
+     flex: 0.1;
+     color: #000000;
+     border-bottom: 2px solid lightgrey; 
+    margin-left: 20px;
+}
+
+.korea_list{
+	width : 350px;
+}
+	
+.korea_contents{
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+}
+
+.gam{
+	width : 800px;
+	float : left;
+	margin-left:20px;
+    min-height: 600px;
+}
+
+.gam_table {
+	padding : 3px;
+	border : 1px solid #bcbcbc;
+	border-collapse: collapse;
+	width : 800px;
+	text-align: center;
+}
+
+th, td{
+	padding: 10px;
+}
+
+tr {
+	padding : 10px;
+}
+
+.gam_table_info:nth-child(odd) {
+	background-color: #d1d1d1;
+}
+
+.gam_table_th{
+	background: #999999;
+}
+
+.area_name{
+	color : #073763;
+	font-weight: bolder;
+}
+
+.vaccine{
+	width: 400px;
+	height: 500px;
+	margin-left: 20px;
+	background-color: #f9f9f9;
+}
+
+.gam_title, .vaccine_title{
+	color:#073763;
+	text-align: left;
+	font-size:25px;
+	font-weight: bold;	
+}

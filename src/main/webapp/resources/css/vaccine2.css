@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+.vaccine_title{
+     /* flex: 0.1; */
+    font-size: 40px;
+	font-weight: 700;
+     flex: 0.1;
+     color: #000000;
+     border-bottom: 2px solid lightgrey; 
+    margin-left: 20px;
+}
+
+.vaccine_list{
+	width : 350px;
+}
+
+	
+.vaccine_contents{
+   background-color: #ffffff;
+	width: 1000px;
+    height: 700px;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    margin: 100px auto;
+}
+
+.reserve1{
+	width:700px;
+	height:250px;
+	background-color:#f1f1f1;
+	float: right;
+	margin-left: 150px;
+	margin-bottom: 100px;
+	position: relative;
+}
+
+.reserve2{
+	width:700px;
+	height:250px;
+	background-color:#f1f1f1;
+	float: right;
+	margin-left: 150px;
+	position: relative;
+}
+
+.baro{
+	position: absolute;
+	flex: 1;
+	top:40%;
+	left:38%;
+	width : 130px;
+	min-height: 30px;
+	background-color:#073763;
+	padding:10px 20px 10px 20px;
+	color:#ffffff;
+	font-size:20px;
+	text-align: center;
+	border-radius: 9px;
+}
+
+.naver{
+	position: absolute;
+	flex: 1;
+	top:40%;
+	left:20%;
+	width : 130px;
+	min-height: 30px;
+	background-color:#4dea40;
+	padding:10px 20px 10px 20px;
+	color: #ffffff;
+	font-size:20px;
+	text-align: center;
+	border-radius: 9px;
+}
+
+.kko{
+	position: absolute;
+	flex: 1;
+	top:40%;
+	left:55%;
+	width : 130px;
+	min-height: 30px;
+	background-color:#fdf04d;
+	padding:10px 20px 10px 20px;
+	color: #6c4a35;
+	font-size:20px;
+	text-align: center;
+	border-radius: 9px;
+}
+.reserve1, .reserve2{
+	color:#073763;
+	text-align: left;
+	font-size:25px;
+	font-weight: bold;	
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.itbank.mapper.VaccineMapper">
+  	
+  	<insert id="insertPf">
+  		INSERT into vac_pf(pf_no, pf_name)
+  		VALUES(pf_seq.nextval, #{pf_name})
+  	</insert>
+  	
+  	<insert id="insertMf">
+  		INSERT into vac_mf(mf_no, mf_name)
+  		VALUES(mf_seq.nextval, #{mf_name})
+  	</insert>
+  
+  	<insert id="insertVaccine">
+		INSERT into vac_info(info_no, info_vp, info_vm, info_ages, info_num, info_prd, info_bs)
+		VALUES(info_seq.nextval, #{info_vp}, #{info_vm}, #{info_ages}, #{info_num}, #{info_prd}, #{info_bs})	
+  	</insert>
+  
+  	<select id="getAllList" resultType="com.itbank.vo.VaccineVO">
+  		SELECT * FROM vac_info ORDER BY info_no
+	</select>
+	
+	<update id="update">
+		UPDATE vac_info set
+		info_vp = #{info_vp},
+		info_vm = #{info_vm},
+		info_ages = #{info_ages},
+		info_num = #{info_num},
+		info_prd = #{info_prd},
+		info_bs = #{info_bs}
+		WHERE info_no = #{info_no} 	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM vac_info WHERE info_no = #{info_no}
+	</delete> 
+</mapper>
