@@ -64,14 +64,14 @@ public class MemberController {
 		session.setAttribute("vo", memberVO); // 세션에 회원 정보 등록
 		session.setAttribute("isLogin", true); // 세션에 로그인 여부 정보 등록
 		
-		return "index";
+		return "redirect:/index";
 	}
 	
 	// logout시 세션에 있는 로그인 정보를 세션 무효화로 제거
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "redirect:/index";
 	}
 	
 	// login창에서 회원가입을 누를 시 joinForm으로 이동
